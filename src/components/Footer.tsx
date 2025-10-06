@@ -22,7 +22,7 @@ const Footer = () => {
               <Mail className="h-4 w-4" />
             </a>
             <a 
-              href="#"
+              href="https://www.linkedin.com/in/carl-manalili-0b6b3a115/"
               className="p-2 rounded-full bg-secondary hover:bg-primary/20 transition-colors"
               aria-label="LinkedIn"
             >
