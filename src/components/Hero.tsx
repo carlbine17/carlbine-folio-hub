@@ -15,10 +15,16 @@ const Hero = () => {
         <div className="text-center space-y-8 animate-fade-in">
           {/* Name as logo */}
           <div className="space-y-2">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight flex flex-col items-center">
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Carl Isaiah Manalili
               </span>
+              <img
+                src="/ice.jpg"
+                alt="Carl Isaiah Manalili photo"
+                className="inline-block w-14 h-20 rounded-xl border border-border shadow-sm mt-2 object-cover"
+                style={{ aspectRatio: '7/10', objectFit: 'cover' }}
+              />
             </h1>
             <div className="flex items-center justify-center gap-2 text-muted-foreground">
               <div className="h-px w-8 bg-primary" />
