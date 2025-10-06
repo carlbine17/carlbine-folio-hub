@@ -1,6 +1,7 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const projects = [
   {
@@ -26,12 +27,14 @@ const projects = [
 ];
 
 const Portfolio = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section id="work" className="py-24 px-4 relative">
+    <section ref={ref as any} id="work" className="py-24 px-4 relative">
       <div className="absolute inset-0 bg-gradient-subtle pointer-events-none" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="text-center mb-16 space-y-4">
+        <div className={`text-center mb-16 space-y-4 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Featured Projects
@@ -46,11 +49,11 @@ const Portfolio = () => {
           {projects.map((project, index) => (
             <Card 
               key={index}
-              className="group bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow"
+              className={`group bg-card border-border hover:border-primary/50 transition-all duration-700 hover:shadow-glow hover:scale-105 ${
+                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              }`}
               style={{ 
-                animationDelay: `${index * 100}ms`,
-                opacity: 0,
-                animation: "scale-in 0.4s ease-out forwards"
+                transitionDelay: `${index * 100}ms`,
               }}
             >
               <CardHeader>

@@ -1,5 +1,6 @@
 import { Code, Database, Shield, TrendingUp } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const services = [
   {
@@ -25,12 +26,14 @@ const services = [
 ];
 
 const Services = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section id="services" className="py-24 px-4 relative">
+    <section ref={ref as any} id="services" className="py-24 px-4 relative">
       <div className="absolute inset-0 bg-gradient-subtle pointer-events-none" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="text-center mb-16 space-y-4">
+        <div className={`text-center mb-16 space-y-4 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Services
@@ -47,11 +50,11 @@ const Services = () => {
             return (
               <Card 
                 key={index}
-                className="group bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow"
+                className={`group bg-card border-border hover:border-primary/50 transition-all duration-700 hover:shadow-glow hover:scale-105 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
                 style={{ 
-                  animationDelay: `${index * 100}ms`,
-                  opacity: 0,
-                  animation: "fade-in 0.6s ease-out forwards"
+                  transitionDelay: `${index * 100}ms`,
                 }}
               >
                 <CardHeader>

@@ -1,5 +1,6 @@
 import { Quote, Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const testimonials = [
   {
@@ -23,10 +24,12 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section id="testimonials" className="py-24 px-4">
+    <section ref={ref as any} id="testimonials" className="py-24 px-4">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16 space-y-4">
+        <div className={`text-center mb-16 space-y-4 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Testimonials
@@ -41,11 +44,11 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index}
-              className="bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow"
+              className={`bg-card border-border hover:border-primary/50 transition-all duration-700 hover:shadow-glow hover:-translate-y-2 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
               style={{ 
-                animationDelay: `${index * 150}ms`,
-                opacity: 0,
-                animation: "fade-in 0.6s ease-out forwards"
+                transitionDelay: `${index * 150}ms`,
               }}
             >
               <CardContent className="pt-6">

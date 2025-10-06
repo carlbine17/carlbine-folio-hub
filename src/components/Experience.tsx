@@ -1,5 +1,6 @@
 import { Briefcase, Calendar } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const experiences = [
   {
@@ -26,10 +27,12 @@ const experiences = [
 ];
 
 const Experience = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section id="experience" className="py-24 px-4">
+    <section ref={ref as any} id="experience" className="py-24 px-4">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16 space-y-4">
+        <div className={`text-center mb-16 space-y-4 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Work Experience
@@ -44,11 +47,11 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <Card 
               key={index}
-              className="bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow"
+              className={`bg-card border-border hover:border-primary/50 transition-all duration-700 hover:shadow-glow hover:scale-[1.02] ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
               style={{ 
-                animationDelay: `${index * 150}ms`,
-                opacity: 0,
-                animation: "fade-in-left 0.6s ease-out forwards"
+                transitionDelay: `${index * 150}ms`,
               }}
             >
               <CardHeader>
