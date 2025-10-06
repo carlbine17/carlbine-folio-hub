@@ -7,7 +7,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
+  <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 pt-16">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-background to-background pointer-events-none" />
       
@@ -16,13 +16,13 @@ const Hero = () => {
           {/* Name as logo */}
           <div className="space-y-2">
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight flex flex-col items-center">
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent z-10 relative text-4xl md:text-5xl">
                 Carl Isaiah Manalili
               </span>
               <img
                 src="/ice.jpg"
                 alt="Carl Isaiah Manalili photo"
-                className="inline-block w-14 h-20 rounded-xl border border-border shadow-sm mt-2 object-cover"
+                className="inline-block w-64 h-[22rem] rounded-2xl border border-border shadow-xl mt-2 object-cover z-0"
                 style={{ aspectRatio: '7/10', objectFit: 'cover' }}
               />
             </h1>
