@@ -15,36 +15,36 @@ const Hero = () => {
         <div className="text-center space-y-8 animate-fade-in">
           {/* Name as logo */}
           <div className="w-full flex flex-col md:flex-row items-center justify-center">
-            <div className="flex flex-col items-center justify-center text-center w-full md:w-1/2 min-h-[22rem] md:min-h-0 md:justify-center md:items-center">
+            <div className="flex flex-col items-center justify-center text-center w-full md:w-1/2 min-h-[22rem] md:min-h-0 md:justify-center md:items-center mx-auto">
               <div className="flex flex-col items-center justify-center h-full w-full">
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent z-10 relative">
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight w-full text-center mx-auto">
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent z-10 relative w-full text-center block mx-auto">
                     Carl Isaiah Manalili
                   </span>
                 </h1>
-                <div className="flex items-center justify-center gap-2 text-muted-foreground mt-2">
+                <div className="flex items-center justify-center gap-2 text-muted-foreground mt-2 w-full mx-auto">
                   <div className="h-px w-8 bg-primary" />
                   <p className="text-xl md:text-2xl">Programmer & Systems Engineer</p>
                   <div className="h-px w-8 bg-primary" />
                 </div>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-4">
+                  Detail-oriented Application Systems Engineer with expertise in software development, 
+                  data analysis, and cybersecurity. Specialized in building secure, efficient solutions 
+                  using modern technologies.
+                </p>
               </div>
             </div>
             <div className="flex justify-center md:justify-end w-full md:w-1/2 mt-8 md:mt-0">
               <img
                 src="/ice.jpg"
                 alt="Carl Isaiah Manalili photo"
-                className="inline-block w-64 h-[22rem] rounded-2xl border border-border shadow-xl object-cover z-0 md:ml-40"
+                className="inline-block w-96 h-[32rem] rounded-2xl border border-border shadow-2xl object-cover z-0 md:ml-[20vw]"
                 style={{ aspectRatio: '7/10', objectFit: 'cover' }}
               />
             </div>
           </div>
 
           {/* Summary */}
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Detail-oriented Application Systems Engineer with expertise in software development, 
-            data analysis, and cybersecurity. Specialized in building secure, efficient solutions 
-            using modern technologies.
-          </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
