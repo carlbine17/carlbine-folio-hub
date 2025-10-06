@@ -14,22 +14,28 @@ const Hero = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center space-y-8 animate-fade-in">
           {/* Name as logo */}
-          <div className="space-y-2">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight flex flex-col items-center">
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent z-10 relative text-4xl md:text-5xl">
-                Carl Isaiah Manalili
-              </span>
+          <div className="w-full flex flex-col md:flex-row items-center justify-center">
+            <div className="flex flex-col items-center justify-center text-center w-full md:w-1/2 min-h-[22rem] md:min-h-0 md:justify-center md:items-center">
+              <div className="flex flex-col items-center justify-center h-full w-full">
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent z-10 relative">
+                    Carl Isaiah Manalili
+                  </span>
+                </h1>
+                <div className="flex items-center justify-center gap-2 text-muted-foreground mt-2">
+                  <div className="h-px w-8 bg-primary" />
+                  <p className="text-xl md:text-2xl">Programmer & Systems Engineer</p>
+                  <div className="h-px w-8 bg-primary" />
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center md:justify-end w-full md:w-1/2 mt-8 md:mt-0">
               <img
                 src="/ice.jpg"
                 alt="Carl Isaiah Manalili photo"
-                className="inline-block w-64 h-[22rem] rounded-2xl border border-border shadow-xl mt-2 object-cover z-0"
+                className="inline-block w-64 h-[22rem] rounded-2xl border border-border shadow-xl object-cover z-0 md:ml-40"
                 style={{ aspectRatio: '7/10', objectFit: 'cover' }}
               />
-            </h1>
-            <div className="flex items-center justify-center gap-2 text-muted-foreground">
-              <div className="h-px w-8 bg-primary" />
-              <p className="text-xl md:text-2xl">Programmer & Systems Engineer</p>
-              <div className="h-px w-8 bg-primary" />
             </div>
           </div>
 
