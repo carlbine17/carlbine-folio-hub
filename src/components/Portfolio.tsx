@@ -5,6 +5,12 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const projects = [
   {
+    title: "Wishmas Sparkle",
+    description: "Interactive holiday-themed web application with engaging user experience and festive animations.",
+    tags: ["React", "TypeScript", "Web Development"],
+    link: "https://wishmas-sparkle.onrender.com/",
+  },
+  {
     title: "Enterprise Analytics Dashboard",
     description: "Designed and developed comprehensive dashboards for data-driven decision making using SAP Analytics Cloud and custom JavaScript integrations.",
     tags: ["SAP Analytics Cloud", "JavaScript", "Data Visualization"],
@@ -57,23 +63,21 @@ const Portfolio = () => {
               }}
             >
               <CardHeader>
-                <div className="flex items-start justify-between">
+                  <div className="flex items-start justify-between">
                   <CardTitle className="text-xl">{project.title}</CardTitle>
                   <div className="flex gap-2">
-                    <Button 
-                      size="icon" 
-                      variant="ghost"
-                      className="h-8 w-8 hover:bg-primary/10 hover:text-primary"
-                    >
-                      <Github className="h-4 w-4" />
-                    </Button>
-                    <Button 
-                      size="icon" 
-                      variant="ghost"
-                      className="h-8 w-8 hover:bg-primary/10 hover:text-primary"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                    </Button>
+                    {project.link && (
+                      <Button 
+                        size="icon" 
+                        variant="ghost"
+                        className="h-8 w-8 hover:bg-primary/10 hover:text-primary"
+                        asChild
+                      >
+                        <a href={project.link} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
                 <CardDescription className="text-base leading-relaxed">
