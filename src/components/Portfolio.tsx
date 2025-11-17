@@ -6,7 +6,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 const projects = [
   {
     title: "Wishmas Sparkle",
-    description: "Interactive holiday-themed web application with engaging user experience and festive animations.",
+    description: "Wishmas Sparkle is a festive online hub designed for Christmas gift exchanges. It lets friends and families browse each other’s wishlists, discover thoughtful presents, and prepare for a joyful celebration together.",
     tags: ["React", "TypeScript", "Web Development"],
     link: "https://wishmas-sparkle.onrender.com/",
   },
