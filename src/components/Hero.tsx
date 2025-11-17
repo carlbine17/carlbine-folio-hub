@@ -7,10 +7,13 @@ const Hero = () => {
   };
 
   return (
-  <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 pt-16">
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 pt-16"
+    >
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-background to-background pointer-events-none" />
-      
+
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center space-y-8 animate-fade-in">
           {/* Name as logo */}
@@ -28,9 +31,9 @@ const Hero = () => {
                   <div className="h-px w-8 bg-primary" />
                 </div>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-4">
-                  Detail-oriented Application Systems Engineer with expertise in software development, 
-                  data analysis, and cybersecurity. Specialized in building secure, efficient solutions 
-                  using modern technologies.
+                  Detail-oriented Application Systems Engineer with expertise in software
+                  development, data analysis, and cybersecurity. Specialized in building
+                  secure, efficient solutions using modern technologies.
                 </p>
               </div>
             </div>
@@ -39,25 +42,23 @@ const Hero = () => {
                 src="/ice.jpg"
                 alt="Carl Isaiah Manalili photo"
                 className="inline-block w-96 h-[32rem] rounded-2xl border border-border shadow-2xl object-cover z-0 md:ml-[20vw]"
-                style={{ aspectRatio: '7/10', objectFit: 'cover' }}
+                style={{ aspectRatio: "7/10", objectFit: "cover" }}
               />
             </div>
           </div>
 
-          {/* Summary */}
-
           {/* CTA Buttons */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow transition-all"
               onClick={() => scrollToSection("contact")}
             >
               Get In Touch
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="outline"
               className="border-primary/50 hover:bg-primary/10 hover:border-primary"
               onClick={() => scrollToSection("work")}
@@ -68,21 +69,21 @@ const Hero = () => {
 
           {/* Social Links */}
           <div className="flex items-center justify-center gap-4 pt-8">
-            <a 
+            <a
               href="mailto:carlbine17@gmail.com"
               className="p-3 rounded-full bg-secondary hover:bg-primary/20 transition-colors hover:shadow-glow"
               aria-label="Email"
             >
               <Mail className="h-5 w-5" />
             </a>
-            <a 
+            <a
               href="https://www.linkedin.com/in/carl-manalili-0b6b3a115/"
               className="p-3 rounded-full bg-secondary hover:bg-primary/20 transition-colors hover:shadow-glow"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-5 w-5" />
             </a>
-            <a 
+            <a
               href="#"
               className="p-3 rounded-full bg-secondary hover:bg-primary/20 transition-colors hover:shadow-glow"
               aria-label="GitHub"
@@ -90,13 +91,6 @@ const Hero = () => {
               <Github className="h-5 w-5" />
             </a>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-2 bg-primary rounded-full animate-pulse" />
         </div>
       </div>
     </section>
