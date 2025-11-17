@@ -36,10 +36,8 @@ const Portfolio = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section ref={ref as any} id="work" className="py-24 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-subtle pointer-events-none" />
-      
-      <div className="container mx-auto max-w-6xl relative z-10">
+    <section ref={ref as any} id="work" className="py-24 px-4">
+      <div className="container mx-auto max-w-6xl">
         <div className={`text-center mb-16 space-y-4 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl md:text-5xl font-bold">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
