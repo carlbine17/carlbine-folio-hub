@@ -29,7 +29,7 @@ const Footer = () => {
               <Linkedin className="h-4 w-4" />
             </a>
             <a 
-              href="#"
+              href="https://github.com/carlbine17"
               className="p-2 rounded-full bg-secondary hover:bg-primary/20 transition-colors"
               aria-label="GitHub"
             >
