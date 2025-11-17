@@ -84,7 +84,7 @@ const Hero = () => {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="#"
+              href="https://github.com/carlbine17"
               className="p-3 rounded-full bg-secondary hover:bg-primary/20 transition-colors hover:shadow-glow"
               aria-label="GitHub"
             >
