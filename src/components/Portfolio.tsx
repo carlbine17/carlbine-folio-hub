@@ -4,6 +4,12 @@ import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const projects = [
+   {
+    title: "Lubao Run Club",
+    description: "Official home of the Lubao Running Club (LRC), a community-driven group in Pampanga dedicated to promoting fitness, friendship, and personal growth through running.",
+    tags: ["React", "TypeScript", "Web Development"],
+    link: "https://lrclubaorunclub.onrender.com/",
+  },
   {
     title: "Wishmas Sparkle",
     description: "Wishmas Sparkle is a festive online hub designed for Christmas gift exchanges. It lets friends and families browse each other’s wishlists, discover thoughtful presents, and prepare for a joyful celebration together.",
