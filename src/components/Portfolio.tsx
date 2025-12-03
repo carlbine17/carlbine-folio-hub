@@ -8,7 +8,7 @@ const projects = [
     title: "Lubao Run Club",
     description: "Official home of the Lubao Running Club (LRC), a community-driven group in Pampanga dedicated to promoting fitness, friendship, and personal growth through running.",
     tags: ["React", "TypeScript", "Web Development"],
-    link: "https://lrclubaorunclub.onrender.com/",
+    link: "https://lrclubaorunclub.site/",
   },
   {
     title: "Wishmas Sparkle",
