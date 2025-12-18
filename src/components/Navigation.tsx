@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "./ThemeToggle";
-import FerrariToggle from "./FerrariToggle";
 
 const navItems = [
   { label: "Home", href: "#hero" },
@@ -63,13 +62,11 @@ const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
               </button>
             ))}
-            <FerrariToggle />
             <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <FerrariToggle />
             <ThemeToggle />
             <Button
               variant="ghost"
