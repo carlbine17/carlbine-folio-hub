@@ -31,9 +31,12 @@ const Hero = () => {
                   <div className="h-px w-8 bg-primary" />
                 </div>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-4">
-                  Detail-oriented Application Systems Engineer with a Bachelor’s degree in Computer Science.
+                  Detail-oriented Application Systems Engineer with a Bachelor's degree in Computer Science.
                   Skilled in software development, data analysis, and cybersecurity. Specialized in building secure,
-                  efficient solutions using modern technologies
+                  efficient solutions using modern technologies.
+                </p>
+                <p className="text-base text-muted-foreground/80 max-w-xl mx-auto leading-relaxed mt-3 italic">
+                  Passionate about flying drones, photography, videography, and video/photo editing.
                 </p>
               </div>
             </div>
