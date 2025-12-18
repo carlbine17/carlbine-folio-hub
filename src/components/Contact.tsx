@@ -78,7 +78,7 @@ const Contact = () => {
 
         <div className={`mt-12 text-center transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <p className="text-muted-foreground mb-6">
-            Available for freelance opportunities and full-time positions
+            Available for freelance opportunities
           </p>
           <a 
             href="mailto:carlbine17@gmail.com"
