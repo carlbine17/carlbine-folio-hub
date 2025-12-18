@@ -36,7 +36,7 @@ const Hero = () => {
                   efficient solutions using modern technologies.
                 </p>
                 <p className="text-base text-muted-foreground/80 max-w-xl mx-auto leading-relaxed mt-3 italic">
-                  Passionate about flying drones, photography, videography, and video/photo editing.
+                  Passionate about flying drones, photography, videography, running, cycling, and motorsports enthusiast (F1 & WEC).
                 </p>
               </div>
             </div>
