@@ -68,7 +68,11 @@ const Hero = () => {
 
                 {/* Certifications */}
                 <div className="pt-6 w-full">
-                  <p className="text-sm text-muted-foreground mb-4">Certifications</p>
+                  <div className="flex items-center justify-center gap-2 text-muted-foreground mb-4">
+                    <div className="h-px w-8 bg-primary" />
+                    <p className="text-sm">Certifications</p>
+                    <div className="h-px w-8 bg-primary" />
+                  </div>
                   <div className="flex flex-wrap items-center justify-center gap-4">
                     {certifications.map((cert, index) => (
                       <a
@@ -79,7 +83,7 @@ const Hero = () => {
                         className="group relative flex flex-col items-center"
                         title={`${cert.title} - ${cert.issuer}`}
                       >
-                        <div className="w-20 h-20 rounded-full bg-secondary/50 p-2 transition-all duration-300 group-hover:scale-125 group-hover:shadow-glow group-hover:z-10">
+                        <div className="w-20 h-20 rounded-full bg-secondary/50 p-2 transition-all duration-300 group-hover:scale-150 group-hover:shadow-glow group-hover:z-10">
                           <img
                             src={cert.image}
                             alt={cert.title}
