@@ -65,6 +65,35 @@ const Hero = () => {
                 <p className="text-base text-muted-foreground/80 max-w-xl mx-auto leading-relaxed mt-3 italic">
                   Passionate about flying drones, photography, videography, running, cycling, and motorsports enthusiast (F1 & WEC).
                 </p>
+
+                {/* Certifications */}
+                <div className="pt-6 w-full">
+                  <p className="text-sm text-muted-foreground mb-4">Certifications</p>
+                  <div className="flex flex-wrap items-center justify-center gap-4">
+                    {certifications.map((cert, index) => (
+                      <a
+                        key={index}
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative flex flex-col items-center"
+                        title={`${cert.title} - ${cert.issuer}`}
+                      >
+                        <div className="w-20 h-20 rounded-full bg-secondary/50 p-2 transition-all duration-300 group-hover:scale-125 group-hover:shadow-glow group-hover:z-10">
+                          <img
+                            src={cert.image}
+                            alt={cert.title}
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                        <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-background border border-border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none flex items-center gap-1">
+                          {cert.title}
+                          <ExternalLink className="w-3 h-3" />
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
             <div className="flex justify-center md:justify-end w-full md:w-1/2 mt-8 md:mt-0">
@@ -74,35 +103,6 @@ const Hero = () => {
                 className="inline-block w-96 h-[32rem] rounded-2xl border border-border shadow-2xl object-cover z-0 md:ml-[20vw]"
                 style={{ aspectRatio: "7/10", objectFit: "cover" }}
               />
-            </div>
-          </div>
-
-          {/* Certifications */}
-          <div className="pt-4">
-            <p className="text-sm text-muted-foreground mb-4">Certifications</p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              {certifications.map((cert, index) => (
-                <a
-                  key={index}
-                  href={cert.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex flex-col items-center"
-                  title={`${cert.title} - ${cert.issuer}`}
-                >
-                  <div className="w-16 h-16 rounded-full bg-secondary/50 p-2 transition-all duration-300 group-hover:scale-150 group-hover:shadow-glow group-hover:z-10">
-                    <img
-                      src={cert.image}
-                      alt={cert.title}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-background border border-border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none flex items-center gap-1">
-                    {cert.title}
-                    <ExternalLink className="w-3 h-3" />
-                  </span>
-                </a>
-              ))}
             </div>
           </div>
 
