@@ -1,5 +1,32 @@
-import { ArrowRight, Github, Linkedin, Mail, Facebook, Instagram } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Facebook, Instagram, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const certifications = [
+  {
+    title: "Ethical Hacker",
+    issuer: "Cisco",
+    image: "https://images.credly.com/size/340x340/images/242902b5-f527-42ad-865e-977c9e1b5b58/image.png",
+    link: "https://www.credly.com/badges/cf5e89b6-831f-4993-89cc-c176ab9856b4/public_url"
+  },
+  {
+    title: "Introduction to Cybersecurity",
+    issuer: "Cisco",
+    image: "https://images.credly.com/size/340x340/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png",
+    link: "https://www.credly.com/badges/6f6be9d8-a64f-4ea7-ad40-0cb866c99ac4/public_url"
+  },
+  {
+    title: "Azure Fundamentals",
+    issuer: "Microsoft",
+    image: "https://images.credly.com/size/340x340/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png",
+    link: "https://www.credly.com/badges/4e183b4e-2011-47f2-969b-6efdcbecb77e/public_url"
+  },
+  {
+    title: "Cloud Week Participant",
+    issuer: "Microsoft",
+    image: "https://images.credly.com/size/340x340/images/2317bcc1-9396-4f40-b5c7-d8040dec87c2/image.png",
+    link: "https://www.credly.com/badges/2ee7f2f8-8d75-41e5-b1ac-325e3471746b/public_url"
+  }
+];
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -47,6 +74,35 @@ const Hero = () => {
                 className="inline-block w-96 h-[32rem] rounded-2xl border border-border shadow-2xl object-cover z-0 md:ml-[20vw]"
                 style={{ aspectRatio: "7/10", objectFit: "cover" }}
               />
+            </div>
+          </div>
+
+          {/* Certifications */}
+          <div className="pt-4">
+            <p className="text-sm text-muted-foreground mb-4">Certifications</p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              {certifications.map((cert, index) => (
+                <a
+                  key={index}
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex flex-col items-center"
+                  title={`${cert.title} - ${cert.issuer}`}
+                >
+                  <div className="w-16 h-16 rounded-full bg-secondary/50 p-2 transition-all duration-300 group-hover:scale-110 group-hover:shadow-glow">
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-background border border-border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none flex items-center gap-1">
+                    {cert.title}
+                    <ExternalLink className="w-3 h-3" />
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
 
