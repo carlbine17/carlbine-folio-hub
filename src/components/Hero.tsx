@@ -90,7 +90,7 @@ const Hero = () => {
                   className="group relative flex flex-col items-center"
                   title={`${cert.title} - ${cert.issuer}`}
                 >
-                  <div className="w-16 h-16 rounded-full bg-secondary/50 p-2 transition-all duration-300 group-hover:scale-110 group-hover:shadow-glow">
+                  <div className="w-24 h-24 rounded-full bg-secondary/50 p-3 transition-all duration-300 group-hover:scale-110 group-hover:shadow-glow">
                     <img
                       src={cert.image}
                       alt={cert.title}
