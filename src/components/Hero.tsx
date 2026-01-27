@@ -66,6 +66,16 @@ const Hero = () => {
                   Passionate about flying drones, photography, videography, running, cycling, and motorsports enthusiast (F1 & WEC).
                 </p>
 
+                {/* Photo - Mobile only (between intro and certifications) */}
+                <div className="flex justify-center w-full mt-8 md:hidden">
+                  <img
+                    src="/ice.jpg"
+                    alt="Carl Isaiah Manalili photo"
+                    className="inline-block w-72 h-96 rounded-2xl border border-border shadow-2xl object-cover"
+                    style={{ aspectRatio: "7/10", objectFit: "cover" }}
+                  />
+                </div>
+
                 {/* Certifications */}
                 <div className="pt-6 w-full">
                   <div className="flex items-center justify-center gap-2 text-muted-foreground mb-4">
@@ -100,7 +110,8 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-center md:justify-end w-full md:w-1/2 mt-8 md:mt-0">
+            {/* Photo - Desktop only (right side) */}
+            <div className="hidden md:flex justify-center md:justify-end w-full md:w-1/2 mt-8 md:mt-0">
               <img
                 src="/ice.jpg"
                 alt="Carl Isaiah Manalili photo"
