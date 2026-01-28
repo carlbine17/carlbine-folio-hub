@@ -7,12 +7,14 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SectionDots from "@/components/SectionDots";
+import ChatWidget from "@/components/ChatWidget";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <SectionDots />
+      <ChatWidget />
       <main>
         <Hero />
         <Services />
