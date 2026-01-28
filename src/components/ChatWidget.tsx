@@ -13,42 +13,58 @@ const ChatWidget = () => {
       return document.documentElement.classList.contains("dark");
     };
 
-    // Set initial config
-    window.embeddedChatbotConfig = {
-      chatbotId: "9hbDZNdz4Hj86lJtrAEip",
-      domain: "www.chatbase.co",
-      theme: isDarkMode() ? "dark" : "light",
-    };
-
     const loadChatbase = () => {
       if (document.getElementById("chatbase-script")) return;
       
+      const theme = isDarkMode() ? "dark" : "light";
+      
+      // Set config before script loads
+      window.embeddedChatbotConfig = {
+        chatbotId: "9hbDZNdz4Hj86lJtrAEip",
+        domain: "www.chatbase.co",
+        theme: theme,
+      };
+
       const script = document.createElement("script");
       script.src = "https://www.chatbase.co/embed.min.js";
       script.id = "chatbase-script";
+      script.setAttribute("chatbotId", "9hbDZNdz4Hj86lJtrAEip");
+      script.setAttribute("domain", "www.chatbase.co");
       script.defer = true;
       document.body.appendChild(script);
     };
 
-    if (document.readyState === "complete") {
-      loadChatbase();
-    } else {
-      window.addEventListener("load", loadChatbase);
-    }
+    // Small delay to ensure theme is set from localStorage
+    setTimeout(() => {
+      if (document.readyState === "complete") {
+        loadChatbase();
+      } else {
+        window.addEventListener("load", loadChatbase);
+      }
+    }, 100);
 
-    // Watch for theme changes and update via API
+    // Watch for theme changes
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === "class") {
           const theme = isDarkMode() ? "dark" : "light";
+          
           // Update config
           if (window.embeddedChatbotConfig) {
             window.embeddedChatbotConfig.theme = theme;
           }
-          // Try to update via chatbase API if available
-          if (window.chatbase && typeof window.chatbase === "function") {
+          
+          // Update via chatbase API
+          if (window.chatbase) {
             try {
-              window.chatbase("setTheme", theme);
+              if (typeof window.chatbase === "function") {
+                window.chatbase("updateTheme", theme);
+              }
+              // Also try the config update method
+              const iframe = document.querySelector('iframe[id*="chatbase"]') as HTMLIFrameElement;
+              if (iframe?.contentWindow) {
+                iframe.contentWindow.postMessage({ type: "theme", theme }, "*");
+              }
             } catch (e) {
               // Chatbase not ready
             }
