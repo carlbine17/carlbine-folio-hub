@@ -18,7 +18,7 @@ const ChatWidget = () => {
       
       const theme = isDarkMode() ? "dark" : "light";
       
-      // Set config before script loads
+      // Set config before script loads - use popup mode for mobile
       window.embeddedChatbotConfig = {
         chatbotId: "9hbDZNdz4Hj86lJtrAEip",
         domain: "www.chatbase.co",
@@ -32,6 +32,25 @@ const ChatWidget = () => {
       script.setAttribute("domain", "www.chatbase.co");
       script.defer = true;
       document.body.appendChild(script);
+      
+      // Add CSS to make chatbot a popup on mobile instead of fullscreen
+      const style = document.createElement("style");
+      style.id = "chatbase-mobile-style";
+      style.textContent = `
+        @media (max-width: 768px) {
+          iframe[id*="chatbase"], 
+          iframe[src*="chatbase"],
+          div[id*="chatbase-bubble"] + iframe {
+            max-height: 70vh !important;
+            max-width: 90vw !important;
+            bottom: 80px !important;
+            right: 10px !important;
+            border-radius: 16px !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3) !important;
+          }
+        }
+      `;
+      document.head.appendChild(style);
     };
 
     // Small delay to ensure theme is set from localStorage

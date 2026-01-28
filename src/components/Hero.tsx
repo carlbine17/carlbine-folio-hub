@@ -125,14 +125,21 @@ const Hero = () => {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Button
               size="lg"
-              className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow transition-all"
-              onClick={() => {
+              className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow transition-all relative overflow-hidden"
+              onClick={(e) => {
+                // Add ripple animation
+                const button = e.currentTarget;
+                const ripple = document.createElement("span");
+                ripple.className = "absolute inset-0 bg-white/30 animate-ripple rounded-md";
+                button.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+                
                 if (window.chatbase && typeof window.chatbase === "function") {
                   window.chatbase("open");
                 }
               }}
             >
-              Get In Touch
+              Chat with CarlBot
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
