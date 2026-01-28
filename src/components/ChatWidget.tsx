@@ -1,83 +1,54 @@
 import { useEffect } from "react";
 
-declare global {
-  interface Window {
-    chatbase: any;
-  }
-}
-
 const ChatWidget = () => {
   useEffect(() => {
-    // Initialize chatbase
-    if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-      window.chatbase = (...args: any[]) => {
-        if (!window.chatbase.q) {
-          window.chatbase.q = [];
-        }
-        window.chatbase.q.push(args);
-      };
-      window.chatbase = new Proxy(window.chatbase, {
-        get(target, prop) {
-          if (prop === "q") {
-            return target.q;
-          }
-          return (...args: any[]) => target(prop, ...args);
-        },
-      });
-    }
+    const isDarkMode = () => {
+      // Check documentElement since ThemeToggle uses that
+      return document.documentElement.classList.contains("dark");
+    };
 
-    // Load the script
-    const onLoad = () => {
-      if (document.getElementById("9hbDZNdz4Hj86lJtrAEip")) return;
-      
+    const loadChatbase = () => {
+      // Remove old script if it exists
+      const oldScript = document.getElementById("chatbase-script");
+      if (oldScript) oldScript.remove();
+
+      // Also remove the chatbase iframe/widget to force reload
+      const oldWidget = document.getElementById("chatbase-bubble-button");
+      if (oldWidget) oldWidget.remove();
+      const oldWindow = document.getElementById("chatbase-bubble-window");
+      if (oldWindow) oldWindow.remove();
+
+      // Create new script with theme
       const script = document.createElement("script");
       script.src = "https://www.chatbase.co/embed.min.js";
-      script.id = "9hbDZNdz4Hj86lJtrAEip";
-      script.setAttribute("domain", "www.chatbase.co");
+      script.id = "chatbase-script";
+      script.setAttribute("chatbotId", "9hbDZNdz4Hj86lJtrAEip");
+      script.setAttribute("domain", "www.carlbine.com");
+      script.setAttribute("theme", isDarkMode() ? "dark" : "light");
+      script.defer = true;
       document.body.appendChild(script);
     };
 
     if (document.readyState === "complete") {
-      onLoad();
+      loadChatbase();
     } else {
-      window.addEventListener("load", onLoad);
+      window.addEventListener("load", loadChatbase);
     }
 
-    // Theme sync observer
-    const updateChatbaseTheme = () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      if (window.chatbase && typeof window.chatbase === "function") {
-        try {
-          window.chatbase("setTheme", isDark ? "dark" : "light");
-        } catch (e) {
-          // Chatbase not ready yet
-        }
-      }
-    };
-
-    // Watch for theme changes
+    // Watch for theme changes on documentElement
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === "class") {
-          updateChatbaseTheme();
+          loadChatbase();
         }
       });
     });
 
     observer.observe(document.documentElement, { attributes: true });
 
-    // Initial theme set with delay to ensure chatbase is loaded
-    const themeInterval = setInterval(() => {
-      if (window.chatbase) {
-        updateChatbaseTheme();
-        clearInterval(themeInterval);
-      }
-    }, 500);
-
     return () => {
-      window.removeEventListener("load", onLoad);
+      window.removeEventListener("load", loadChatbase);
       observer.disconnect();
-      clearInterval(themeInterval);
     };
   }, []);
 
