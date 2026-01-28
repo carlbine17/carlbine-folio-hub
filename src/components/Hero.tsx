@@ -126,7 +126,11 @@ const Hero = () => {
             <Button
               size="lg"
               className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow transition-all"
-              onClick={() => scrollToSection("contact")}
+              onClick={() => {
+                if (window.chatbase && typeof window.chatbase === "function") {
+                  window.chatbase("open");
+                }
+              }}
             >
               Get In Touch
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
