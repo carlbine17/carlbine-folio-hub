@@ -20,7 +20,7 @@ const ChatWidget = () => {
       
       // Set config before script loads
       window.embeddedChatbotConfig = {
-        chatbotId: "9hbDZNdz4Hj86lJtrAEip",
+        chatbotId: "CBwnxPYR09j7mN8hlhjbp",
         domain: "www.chatbase.co",
         theme: theme,
       };
