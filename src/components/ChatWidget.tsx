@@ -1,30 +1,31 @@
 import { useEffect } from "react";
 
+declare global {
+  interface Window {
+    chatbase: any;
+    embeddedChatbotConfig: any;
+  }
+}
+
 const ChatWidget = () => {
   useEffect(() => {
     const isDarkMode = () => {
-      // Check documentElement since ThemeToggle uses that
       return document.documentElement.classList.contains("dark");
     };
 
+    // Set initial config
+    window.embeddedChatbotConfig = {
+      chatbotId: "9hbDZNdz4Hj86lJtrAEip",
+      domain: "www.chatbase.co",
+      theme: isDarkMode() ? "dark" : "light",
+    };
+
     const loadChatbase = () => {
-      // Remove old script if it exists
-      const oldScript = document.getElementById("chatbase-script");
-      if (oldScript) oldScript.remove();
-
-      // Also remove the chatbase iframe/widget to force reload
-      const oldWidget = document.getElementById("chatbase-bubble-button");
-      if (oldWidget) oldWidget.remove();
-      const oldWindow = document.getElementById("chatbase-bubble-window");
-      if (oldWindow) oldWindow.remove();
-
-      // Create new script with theme
+      if (document.getElementById("chatbase-script")) return;
+      
       const script = document.createElement("script");
       script.src = "https://www.chatbase.co/embed.min.js";
       script.id = "chatbase-script";
-      script.setAttribute("chatbotId", "9hbDZNdz4Hj86lJtrAEip");
-      script.setAttribute("domain", "www.carlbine.com");
-      script.setAttribute("theme", isDarkMode() ? "dark" : "light");
       script.defer = true;
       document.body.appendChild(script);
     };
@@ -35,11 +36,23 @@ const ChatWidget = () => {
       window.addEventListener("load", loadChatbase);
     }
 
-    // Watch for theme changes on documentElement
+    // Watch for theme changes and update via API
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === "class") {
-          loadChatbase();
+          const theme = isDarkMode() ? "dark" : "light";
+          // Update config
+          if (window.embeddedChatbotConfig) {
+            window.embeddedChatbotConfig.theme = theme;
+          }
+          // Try to update via chatbase API if available
+          if (window.chatbase && typeof window.chatbase === "function") {
+            try {
+              window.chatbase("setTheme", theme);
+            } catch (e) {
+              // Chatbase not ready
+            }
+          }
         }
       });
     });
