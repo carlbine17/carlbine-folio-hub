@@ -28,7 +28,7 @@ const ChatWidget = () => {
       const script = document.createElement("script");
       script.src = "https://www.chatbase.co/embed.min.js";
       script.id = "chatbase-script";
-      script.setAttribute("chatbotId", "9hbDZNdz4Hj86lJtrAEip");
+      script.setAttribute("chatbotId", "CBwnxPYR09j7mN8hlhjbp");
       script.setAttribute("domain", "www.chatbase.co");
       script.defer = true;
       document.body.appendChild(script);
