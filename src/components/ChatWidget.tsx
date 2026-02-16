@@ -32,6 +32,15 @@ const ChatWidget = () => {
       script.setAttribute("domain", "www.chatbase.co");
       script.defer = true;
       document.body.appendChild(script);
+
+      // Close the chatbot after it loads so it doesn't show initial messages
+      script.onload = () => {
+        setTimeout(() => {
+          if (window.chatbase && typeof window.chatbase === "function") {
+            window.chatbase("close");
+          }
+        }, 500);
+      };
     };
 
     // Small delay to ensure theme is set from localStorage
