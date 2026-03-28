@@ -4,6 +4,18 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const experiences = [
   {
+    title: "AI/ML Computational Science Senior Analyst",
+    company: "Accenture",
+    period: "2026 - Present",
+    responsibilities: [
+      "Lead development of machine learning pipelines for large-scale data processing and predictive analytics",
+      "Design and deploy AI-driven solutions leveraging deep learning, NLP, and computer vision frameworks",
+      "Collaborate with cross-functional teams to integrate ML models into production environments",
+      "Conduct research on emerging AI/ML techniques to drive innovation and improve model performance",
+      "Mentor junior analysts on best practices in computational science and model evaluation",
+    ],
+  },
+  {
     title: "Application Systems Engineer",
     company: "Fujitsu",
     period: "2022 - 2025",
