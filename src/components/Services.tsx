@@ -1,29 +1,30 @@
-import { Code, Database, Shield, TrendingUp } from "lucide-react";
+import { Headset, Network, Shield, TrendingUp } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const services = [
   {
-    icon: Code,
-    title: "Software Development",
-    description: "Full-stack development using Java, Python, C#, and JavaScript. Building scalable applications with modern frameworks and best practices.",
+    icon: Headset,
+    title: "IT Support & Infrastructure",
+    description: "Computer troubleshooting, application support, system administration, and hardware & software installation for reliable day-to-day operations.",
   },
   {
-    icon: Database,
-    title: "Database Management",
-    description: "Expert in SQL, SAP HANA, and database optimization. Design and maintain robust data architectures for enterprise applications.",
+    icon: Network,
+    title: "Networking & Troubleshooting",
+    description: "Network configuration and diagnostics, from mesh deployments to resolving connectivity issues across wired and wireless environments.",
   },
   {
     icon: TrendingUp,
-    title: "Data Analytics",
-    description: "Creating insightful dashboards with SAP Analytics Cloud and Palantir. Transform complex data into actionable business intelligence.",
+    title: "Data & Programming",
+    description: "Data analytics and programming with Java, Python, C#, SQL, and SAP HANA — turning complex data into actionable business insight.",
   },
   {
     icon: Shield,
     title: "Cybersecurity",
-    description: "Cisco-certified in ethical hacking and cybersecurity fundamentals. Identifying vulnerabilities and implementing secure solutions.",
+    description: "Cisco-certified in ethical hacking and cybersecurity fundamentals. Identifying vulnerabilities and securing network and application layers.",
   },
 ];
+
 
 const Services = () => {
   const { ref, isVisible } = useScrollReveal();

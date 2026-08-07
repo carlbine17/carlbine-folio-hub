@@ -17,26 +17,27 @@ const projects = [
     link: "https://wishmas-sparkle.onrender.com/",
   },
   {
-    title: "Enterprise Analytics Dashboard",
-    description: "Designed and developed comprehensive dashboards for data-driven decision making using SAP Analytics Cloud and custom JavaScript integrations.",
-    tags: ["SAP Analytics Cloud", "JavaScript", "Data Visualization"],
+    title: "Mesh Network Implementation",
+    description: "Configured and deployed a multi-node mesh router system, optimizing node placement and network settings to eliminate dead zones and ensure seamless, high-speed wireless connectivity.",
+    tags: ["Networking", "Infrastructure", "Troubleshooting"],
   },
   {
-    title: "LLM Integration System",
-    description: "Tailored codebase integration with Large Language Models, including prompt engineering and performance testing for enterprise applications.",
-    tags: ["Python", "LLM", "AI/ML"],
+    title: "IoT & Smart Home Integration",
+    description: "Executed a structured home automation deployment, integrating multiple smart lights, automated switches, and devices into a unified, secure wireless network ecosystem.",
+    tags: ["IoT", "Automation", "Network Security"],
   },
   {
-    title: "Legacy System Modernization",
-    description: "Maintained and optimized COBOL-based legacy systems while implementing modern best practices for data processing and management.",
-    tags: ["COBOL", "SQL", "System Architecture"],
+    title: "Enterprise Analytics Dashboard Support",
+    description: "Provided technical support for client-specific dashboards, troubleshooting data integration issues and optimizing SAP HANA and SQL queries to deliver actionable insights.",
+    tags: ["SAP HANA", "SQL", "Data Visualization"],
   },
   {
-    title: "Secure Application Framework",
-    description: "Developed security-focused application framework applying ethical hacking principles and cybersecurity best practices.",
-    tags: ["C#", "Security", "Framework Design"],
+    title: "LLM Integration Testing",
+    description: "Troubleshot and tested custom codebase integrations with Large Language Models, designing rigorous prompts to evaluate system accuracy, adaptability, and performance.",
+    tags: ["Python", "LLM", "Testing"],
   },
 ];
+
 
 const Portfolio = () => {
   const { ref, isVisible } = useScrollReveal();

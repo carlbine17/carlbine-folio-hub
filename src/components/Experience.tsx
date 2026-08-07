@@ -4,15 +4,13 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const experiences = [
   {
-    title: "AI/ML Computational Science Senior Analyst",
+    title: "Full Stack LLM Development Sr. Analyst",
     company: "Accenture",
     period: "2026 - Present",
     responsibilities: [
-      "Lead development of machine learning pipelines for large-scale data processing and predictive analytics",
-      "Design and deploy AI-driven solutions leveraging deep learning, NLP, and computer vision frameworks",
-      "Collaborate with cross-functional teams to integrate ML models into production environments",
-      "Conduct research on emerging AI/ML techniques to drive innovation and improve model performance",
-      "Mentor junior analysts on best practices in computational science and model evaluation",
+      "Administer and maintain scalable systems, ensuring high availability, continuous improvement, and minimal downtime for end-users",
+      "Provide technical support in the design and implementation of client-specific dashboards, troubleshooting data integration issues to deliver actionable insights",
+      "Monitor system performance and resolve technical anomalies within large language model (LLM) architecture",
     ],
   },
   {
@@ -20,23 +18,13 @@ const experiences = [
     company: "Fujitsu",
     period: "2022 - 2025",
     responsibilities: [
-      "Developed and maintained systems for continuous improvement and optimization",
-      "Designed custom dashboards tailored to client specifications using SAP Analytics Cloud",
-      "Worked with Java, Python, C#, JavaScript, SQL, SAP HANA, and Palantir",
-      "Integrated codebases with Large Language Models and tested outputs for accuracy",
-    ],
-  },
-  {
-    title: "Programmer Analyst",
-    company: "Accenture",
-    period: "2017 - 2018",
-    responsibilities: [
-      "Maintained legacy systems using COBOL for efficient data processing",
-      "Ensured system reliability and data integrity across critical applications",
-      "Collaborated with cross-functional teams on system improvements",
+      "Supported and maintained enterprise-level applications, proactively identifying bugs and applying technical solutions to ensure continuous system reliability",
+      "Acted as a technical resource for client-tailored dashboards, resolving data discrepancies and optimizing SAP HANA and SQL database queries",
+      "Troubleshot and tested custom codebase integrations for Large Language Models (LLMs), designing rigorous testing prompts to evaluate system accuracy, adaptability, and performance",
     ],
   },
 ];
+
 
 const Experience = () => {
   const { ref, isVisible } = useScrollReveal();
