@@ -55,17 +55,20 @@ const Hero = () => {
                 </h1>
                 <div className="flex items-center justify-center gap-2 text-muted-foreground mt-2 w-full mx-auto">
                   <div className="h-px w-8 bg-primary" />
-                  <p className="text-xl md:text-2xl">Programmer & Systems Engineer</p>
+                  <p className="text-xl md:text-2xl">Technical Support Engineer & IT Support Specialist</p>
                   <div className="h-px w-8 bg-primary" />
                 </div>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-4">
-                  Detail-oriented Application Systems Engineer with a Bachelor's degree in Computer Science.
-                  Skilled in software development, data analysis, and cybersecurity. Specialized in building secure,
-                  efficient solutions using modern technologies.
+                  Detail-oriented IT professional with a strong foundation in application support, system
+                  troubleshooting, and data analysis. Adept at resolving complex technical issues, managing
+                  database systems, and ensuring optimal system performance. Cisco-certified in cybersecurity
+                  and ethical hacking, with a proven ability to secure network vulnerabilities, support diverse
+                  user needs, and collaborate across teams to deliver robust technical solutions.
                 </p>
                 <p className="text-base text-muted-foreground/80 max-w-xl mx-auto leading-relaxed mt-3 italic">
                   Passionate about flying drones, photography, videography, running, cycling, and motorsports enthusiast (F1 & WEC).
                 </p>
+
 
                 {/* Photo - Mobile only (between intro and certifications) */}
                 <div className="flex justify-center w-full mt-8 md:hidden">
