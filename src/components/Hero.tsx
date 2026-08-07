@@ -1,5 +1,6 @@
 import { ArrowRight, Github, Linkedin, Mail, Facebook, Instagram, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { openCarlBot } from "@/components/ChatWidget";
 
 const certifications = [
   {
