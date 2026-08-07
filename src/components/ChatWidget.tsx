@@ -7,87 +7,69 @@ declare global {
   }
 }
 
+const CHATBOT_ID = "CBwnxPYR09j7mN8hlhjbp";
+
+const isDarkMode = () => document.documentElement.classList.contains("dark");
+
+let loading = false;
+
+/** Loads the Chatbase script on demand and opens the chat. Never runs on page load. */
+export const openCarlBot = () => {
+  if (document.getElementById("chatbase-script")) {
+    if (typeof window.chatbase === "function") window.chatbase("open");
+    return;
+  }
+
+  if (loading) return;
+  loading = true;
+
+  window.embeddedChatbotConfig = {
+    chatbotId: CHATBOT_ID,
+    domain: "www.chatbase.co",
+    theme: isDarkMode() ? "dark" : "light",
+  };
+
+  const script = document.createElement("script");
+  script.src = "https://www.chatbase.co/embed.min.js";
+  script.id = "chatbase-script";
+  script.setAttribute("chatbotId", CHATBOT_ID);
+  script.setAttribute("domain", "www.chatbase.co");
+  script.defer = true;
+  script.onload = () => {
+    loading = false;
+    setTimeout(() => {
+      if (typeof window.chatbase === "function") window.chatbase("open");
+    }, 400);
+  };
+  document.body.appendChild(script);
+};
+
 const ChatWidget = () => {
   useEffect(() => {
-    const isDarkMode = () => {
-      return document.documentElement.classList.contains("dark");
-    };
-
-    const loadChatbase = () => {
-      if (document.getElementById("chatbase-script")) return;
-      
+    // Keep widget theme in sync, but only once it has actually been loaded.
+    const observer = new MutationObserver(() => {
+      if (!document.getElementById("chatbase-script")) return;
       const theme = isDarkMode() ? "dark" : "light";
-      
-      // Set config before script loads
-      window.embeddedChatbotConfig = {
-        chatbotId: "CBwnxPYR09j7mN8hlhjbp",
-        domain: "www.chatbase.co",
-        theme: theme,
-      };
 
-      const script = document.createElement("script");
-      script.src = "https://www.chatbase.co/embed.min.js";
-      script.id = "chatbase-script";
-      script.setAttribute("chatbotId", "CBwnxPYR09j7mN8hlhjbp");
-      script.setAttribute("domain", "www.chatbase.co");
-      script.defer = true;
-      document.body.appendChild(script);
-
-      // Close the chatbot after it loads so it doesn't show initial messages
-      script.onload = () => {
-        setTimeout(() => {
-          if (window.chatbase && typeof window.chatbase === "function") {
-            window.chatbase("close");
-          }
-        }, 500);
-      };
-    };
-
-    // Small delay to ensure theme is set from localStorage
-    setTimeout(() => {
-      if (document.readyState === "complete") {
-        loadChatbase();
-      } else {
-        window.addEventListener("load", loadChatbase);
+      if (window.embeddedChatbotConfig) {
+        window.embeddedChatbotConfig.theme = theme;
       }
-    }, 100);
 
-    // Watch for theme changes
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === "class") {
-          const theme = isDarkMode() ? "dark" : "light";
-          
-          // Update config
-          if (window.embeddedChatbotConfig) {
-            window.embeddedChatbotConfig.theme = theme;
-          }
-          
-          // Update via chatbase API
-          if (window.chatbase) {
-            try {
-              if (typeof window.chatbase === "function") {
-                window.chatbase("updateTheme", theme);
-              }
-              // Also try the config update method
-              const iframe = document.querySelector('iframe[id*="chatbase"]') as HTMLIFrameElement;
-              if (iframe?.contentWindow) {
-                iframe.contentWindow.postMessage({ type: "theme", theme }, "*");
-              }
-            } catch (e) {
-              // Chatbase not ready
-            }
-          }
+      try {
+        if (typeof window.chatbase === "function") {
+          window.chatbase("updateTheme", theme);
         }
-      });
+        const iframe = document.querySelector('iframe[id*="chatbase"]') as HTMLIFrameElement | null;
+        if (iframe?.contentWindow) {
+          iframe.contentWindow.postMessage({ type: "theme", theme }, "*");
+        }
+      } catch {
+        // Chatbase not ready
+      }
     });
 
-    observer.observe(document.documentElement, { attributes: true });
-
-    return () => {
-      window.removeEventListener("load", loadChatbase);
-      observer.disconnect();
-    };
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
   }, []);
 
   return null;
