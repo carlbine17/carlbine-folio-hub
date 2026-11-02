@@ -55,7 +55,7 @@ const Hero = () => {
                 </h1>
                 <div className="flex items-center justify-center gap-2 text-muted-foreground mt-2 w-full mx-auto">
                   <div className="h-px w-8 bg-primary" />
-                  <p className="text-xl md:text-2xl">Technical Support Engineer & Developer</p>
+                  <p className="text-xl md:text-2xl">Technical Support Engineer & IT Support Specialist</p>
                   <div className="h-px w-8 bg-primary" />
                 </div>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-4">
