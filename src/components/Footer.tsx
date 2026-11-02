@@ -40,7 +40,7 @@ const Footer = () => {
               <Github className="h-4 w-4" />
             </a>
             <a 
-              href="https://www.facebook.com/musclecarl/"
+              href="https://www.facebook.com/nightstalker2217/"
               className="p-2 rounded-full bg-secondary hover:bg-primary/20 transition-colors"
               aria-label="Facebook"
               target="_blank"
@@ -49,7 +49,7 @@ const Footer = () => {
               <Facebook className="h-4 w-4" />
             </a>
             <a 
-              href="https://www.instagram.com/carlbine/"
+              href="https://www.instagram.com/tinyentecarl/"
               className="p-2 rounded-full bg-secondary hover:bg-primary/20 transition-colors"
               aria-label="Instagram"
               target="_blank"

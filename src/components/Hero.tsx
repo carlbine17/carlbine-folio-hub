@@ -173,7 +173,7 @@ const Hero = () => {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://www.facebook.com/musclecarl/"
+              href="https://www.facebook.com/nightstalker2217/"
               className="p-3 rounded-full bg-secondary hover:bg-primary/20 transition-colors hover:shadow-glow"
               aria-label="Facebook"
               target="_blank"
@@ -182,7 +182,7 @@ const Hero = () => {
               <Facebook className="h-5 w-5" />
             </a>
             <a
-              href="https://www.instagram.com/carlbine/"
+              href="https://www.instagram.com/tinyentecarl/"
               className="p-3 rounded-full bg-secondary hover:bg-primary/20 transition-colors hover:shadow-glow"
               aria-label="Instagram"
               target="_blank"
